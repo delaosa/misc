@@ -6,12 +6,17 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
+    branches: [ "mainX" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "mainX" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+      name:
+        description: 'Name'
+        required: false
+        default: 'Foo'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -29,8 +34,6 @@ jobs:
       - name: Run a one-line script
         run: echo Hello, world!
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: Echo
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          echo ${{ inputs.name }}
