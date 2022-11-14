@@ -1,4 +1,4 @@
-name: ID Example
+name: ID
 
 on:
   workflow_dispatch:
