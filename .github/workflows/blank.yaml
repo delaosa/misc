@@ -7,7 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Echo secret  
-        run: echo '${{secrets[env.SECRETNAME]}}'
+        run: |
+          secret=$(echo '${{secrets[env.SECRETNAME]}}')
+          echo '{"var": "value"}'
+          echo $secret
         env:
           SECRETNAME: TMP
 
