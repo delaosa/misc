@@ -2,11 +2,11 @@ name: ID
 on:
   workflow_dispatch:
 jobs:
-  id:
+  job1:
     name: Workflow ID Provider
     runs-on: ubuntu-latest
     steps:
-      - name: Echo secret  
+      - name: step1  
         run: |
           secret=$(echo '${{secrets[env.SECRETNAME]}}')
           echo '{"var": "value"}'
